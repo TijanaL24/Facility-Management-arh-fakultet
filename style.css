@@ -1,625 +1,250 @@
 @import url("https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css");
 
-:root {
-    --blue-color: #00bfff;
-    --light-blue: #3f8cf1;
-    --dark-blue: #004770;
-    --light-white: #f0f0f0;
-    --light-gray-color: #d4d4d4;
-    --medium-gray-color: #414141;
-    --dark-gray-color: #222222;
-    --green-color: #98d198;
-}
-
 body,
 html {
     margin: 0;
     padding: 0;
-    height: 100vh;
-    font-family: 'Dosis', sans-serif;
+    font-family: "Jost", sans-serif;
     font-size: 16px;
-    color: var(--light-white);
-    background-color: var(--light-gray-color);
+    color: #204051;
+    height: 100vh;
 }
 
 ol,
 ul,
+p,
 h1,
 h2,
+h3,
 h4,
-p {
-    padding: 0;
+h5,
+h6 {
     margin: 0;
+    padding: 0;
 }
 
 h1,
 h2,
-h4 {
-    font-family: 'DM Serif Display', serif;
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Frank Ruhl Libre", serif;
+    font-weight: 700;
 }
 
+/* color: #3B6978; greenish color */
 
-/* HEADER */
 
+
+.container {
+    /* padding: 20px 0; */
+    /* height: 100vh; */
+    /* overflow: hidden; */
+
+    /* display: flex;
+    flex-direction: column;
+    justify-content: space-between; */
+
+    /* background-image:
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)),
+        url(./images/Beograd_-_Gradjevinski_fakultet1.jpg);
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: auto; */
+}
+
+/* HEADER & FOOTER */
 
 header {
-    position: fixed;
-    display: flex;
-    flex-direction: column;
+    background-color: #a3e6cf;
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
     width: 100%;
-    padding: 0 20px;
-    font-size: 16px;
-    background-color: var(--dark-gray-color);
-    z-index: 2;
 }
 
-.header {
+.headline {
+    margin: 0 30px;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 50px;
+    justify-content: center;
+}
+
+header h3 {
+    font-size: 24px;
+    line-height: 125%;
+    text-align: center;
+}
+
+footer {
+    background-color: #a3e6cf;
     padding: 10px 0;
+    position: sticky;
+    bottom: 0;
+    width: 100%;
 }
 
-header h2 {
-    font-size: 20px;
+.copyright {
+    margin: 0px 30px;
+    font-size: 12px;
+    text-align: center;
 }
 
 
+/* MAIN PART */
 
-label.dropdown-reveal::before {
-    content: "\f0c9";
-    font-family: FontAwesome;
+.main-part {
+    margin: 0 40px;
+    text-align: center;
 }
 
-label.dropdown-reveal:hover {
-    color: var(--light-blue);
-    cursor: pointer;
-}
-
-input[type=checkbox] {
+input {
     display: none;
 }
 
-input[type=checkbox]:checked~.dropdown-list {
-    display: block;
+label {
+    position: sticky;
+    background-color: #a3e6cf;
+    top: 100px;
+    display: inline-block;
+    width: fit-content;
+    height: 25px;
+    padding: 0 5px;
 }
 
-
-.dropdown-list {
-    background-color: var(--dark-gray-color);
-    list-style: none;
-}
-
-.dropdown-list a {
-    color: var(--light-white);
-    text-decoration: none;
+label:hover {
+    color: #3B6978;
     cursor: pointer;
+    font-weight: bold;
 }
 
-.dropdown-list a:hover {
-    color: var(--light-blue);
+input:checked+label {
+    color: #3B6978;
+    font-weight: bold;
+    /* text-decoration: underline solid 2px; */
+    border-bottom: #3B6978 solid 2px;
 }
 
-.visit-now {
+section {
+    display: none;
+}
+
+#home:checked~section.home,
+#services:checked~section.services,
+#gallery:checked~section.gallery,
+#contact:checked~section.contact {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    justify-content: center;
+    height: 100%;
     padding: 20px 0;
 }
 
-.visit-dugme {
-    background-color: var(--light-blue);
-    color: var(--light-white);
-
-    border: var(--light-blue);
-    font-weight: bold;
-
-    width: 170px;
-    height: 40px;
-    font-size: 18px;
-    border-radius: 25px;
-    letter-spacing: 2px;
-    padding: 5px 0px;
-
-    transition: all 0.5s;
-}
-
-.visit-dugme span {
-    position: relative;
-    display: inline-block;
-    transition: 0.5s;
-}
-
-.visit-dugme span:after {
-    content: '\00bb';
-    opacity: 0;
-    position: absolute;
-    top: 0;
-    right: -20px;
-    transition: 0.5s;
-}
-
-.visit-dugme:hover span {
-    padding-right: 20px;
-
-}
-
-.visit-dugme:hover span::after {
-    opacity: 1;
-    right: 0;
-}
-
-
-
-.return-to-top {
-    position: fixed;
-    bottom: 30px;
-    right: 3%;
-    height: 40px;
-    width: 40px;
-
+.home .sub-content {
     display: flex;
-    justify-content: end;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
 }
 
-.return-to-top a::before {
-    content: "\f151";
-    font-family: FontAwesome;
-    color: var(--light-blue);
-    font-size: 35px;
+.main-part h1 {
+    font-size: 32px;
+    width: 260px;
+    line-height: 125%;
 }
 
-/* HOME */
-
-
-.light {
-    background-color: var(--light-white);
-}
-
-.dark {
-    background-color: var(--light-gray-color);
+.main-part p {
+    line-height: 150%;
 }
 
 .home {
-    color: var(--dark-gray-color);
-    padding: 70px 20px 20px 20px;
-}
-
-.info {
-    color: var(--dark-gray-color);
-    padding: 20px;
-}
-
-.info .content {
-    display: flex;
-    flex-direction: column;
     align-items: center;
-}
-
-.contact-us {
-    background-color: var(--dark-gray-color);
-    color: var(--light-gray-color);
-    padding: 20px;
-}
-
-.about-us {
-    color: var(--dark-gray-color);
-    padding: 20px;
-}
-
-
-.info h2 {
-    font-size: 28px;
-    text-align: center;
-    letter-spacing: 1px;
-}
-
-.banner-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-    padding-bottom: 15px;
-}
-
-h1.hometext {
-    font-size: 36px;
-    text-align: center;
-    letter-spacing: 1px;
-}
-
-h2.hometext {
-    font-size: 28px;
-    text-align: center;
-    letter-spacing: 1px;
-}
-
-h4.hometext {
-    font-size: 22px;
-    text-align: center;
-    letter-spacing: 1px;
-}
-
-.about-us h4 {
-    padding-top: 5px;
-    padding-bottom: 10px;
-}
-
-p.hometext {
-    font-size: 16px;
-    text-align: justify;
-}
-
-.banner-photo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.slika-skole-div {
-    height: auto;
-    width: auto;
-    /* margin-bottom: 10px; */
-}
-
-.slika-skole {
-    object-fit: cover;
-    height: auto;
-    width: 100%;
-    object-position: left;
-}
-
-
-
-.logoimages {
-    display: flex;
-    height: 50px;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-}
-
-.logo1>img,
-.logo2>img {
-    height: 35px;
-    object-fit: fill;
-}
-
-.logo3>img {
-    height: 25px;
-    object-fit: fill;
-}
-
-.slika-skole>img {
-    object-fit: cover;
-}
-
-
-.slika-senzor-div {
-    /* position: relative; */
-    height: 500px;
-    width: auto;
-    margin-bottom: 10px;
-}
-
-.slika-projekat {
-    object-fit: cover;
-    height: 500px;
-    width: 100%;
-    /* object-position: left; */
-    border-radius: 30px;
-}
-
-.slika-projekat:hover {
-    filter: blur(4px);
-    cursor: zoom-in;
-}
-
-
-hr {
-    display: none;
-}
-
-.contact-us .banner-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     gap: 20px;
-    margin: 20px 0;
 }
 
-.contact-info {
+
+.home-image {
+    height: 230px;
+    width: auto;
+}
+
+.home-image img {
+    height: 230px;
+    width: 100%;
+    /* object-position: center; */
+    object-fit: cover;
+    border-radius: 30px;
+    border: #84A9AC 2px solid;
+}
+
+
+button {
+    width: 160px;
+    height: 50px;
+    border-radius: 20px;
+    border: 0;
+    background-color: #204051;
+
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     gap: 10px;
+
+    font-family: "Jost", sans-serif;
+    letter-spacing: 1px;
+    font-size: 16px;
+    color: #ffffff;
 }
 
-.about-us a,
-.contact-us a {
-    color: var(--light-blue);
+button i {
+    color: #CDA274;
 }
 
-hr.dark-background {
-    background: linear-gradient(to right, #222222, #d4d4d4, #222222);
+.logos {
+    height: 30px;
+    width: auto;
+
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
 }
 
-hr.light-background {
-    background: linear-gradient(to right, #d4d4d4, #004770, #d4d4d4);
+.logos img {
+    height: 30px;
+    width: 100%;
+    object-fit: contain;
 }
 
-@media screen and (max-width: 425px) {
 
-    .dropdown-list {
-        display: none;
-        position: absolute;
-        text-align: right;
-        top: 50px;
-        right: 0%;
-        width: 100%;
-        padding: 0 20px 10px 20px;
-    }
 
-    .slika-senzor-div,
-    .slika-projekat {
-        height: 300px;
-    }
 
-    .contact-us h1.hometext {
-        margin-bottom: 50px;
-    }
-
-    hr {
-        display: block;
-        width: 60%;
-        border: 0;
-        height: 1px;
-    }
-
+.services .sub-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
-@media screen and (min-width: 426px) {
-
-    label,
-    input {
-        display: none;
-    }
-
-    header {
-        padding: 0 60px;
-    }
-
-    header h2 {
-        font-size: 24px;
-    }
-
-    .dropdown-list {
-        display: inline-flex;
-    }
-
-    li {
-        padding: 0 10px;
-        font-size: 18px;
-    }
-
-    li:hover {
-        font-weight: bold;
-    }
-
-    .contact-button {
-        background-color: var(--light-gray-color);
-        border-radius: 25px;
-    }
-
-    #contact-button {
-        color: var(--light-blue);
-        font-weight: bold;
-        letter-spacing: 1px;
-    }
-
-    .contact-button:hover {
-        background-color: var(--dark-blue);
-        letter-spacing: 2px;
-    }
-
-    #contact-button:hover {
-        color: var(--light-white);
-    }
-
-    .dropdown-list a {
-        padding: 5px;
-    }
-
-    .banner-content {
-        padding: 0;
-    }
-
-    hr {
-        display: block;
-        width: 60%;
-        border: 0;
-        height: 2px;
-    }
-
-    .contact-us hr {
-        display: none;
-    }
+.single-service {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: end;
 }
 
-@media screen and (min-width: 426px) and (max-width: 768px) {
-
-    .home {
-        padding: 80px 60px 30px 60px;
-    }
-
-    .info,
-    .about-us,
-    .contact-us {
-        padding: 30px 60px;
-    }
-
-    .about-us h2 {
-        padding-bottom: 10px;
-    }
-
-    .contact-us .banner-content {
-        flex-direction: row;
-        margin: 50px 0;
-    }
+.service-description-short {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
 }
 
-@media screen and (min-width: 769px) {
+h4 {
+    font-size: 20px;
+    line-height: 150%;
+}
 
-    .home {
-        padding: 100px 60px 60px 60px;
-    }
-
-    .info,
-    .about-us,
-    .contact-us {
-        padding: 60px;
-    }
-
-    .home .content {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr 80px 50px;
-        gap: 20px 40px;
-    }
-
-    .banner-photo {
-        grid-column: 2 / 3;
-        grid-row: 1 / 3;
-
-        justify-content: center;
-        height: auto;
-        width: auto;
-    }
-
-    .slika-skole-div {
-        margin: 0;
-    }
-
-    .logoimages {
-        grid-column: 1 / 3;
-    }
-
-    .home .banner-content {
-        align-items: start;
-    }
-
-    h1.hometext {
-        font-size: 46px;
-        text-align: left;
-        letter-spacing: 2px;
-    }
-
-    p.hometext {
-        font-size: 18px;
-        text-align: left;
-    }
-
-    .visit-now {
-        padding-top: 10px;
-    }
-
-    .logoimages {
-        height: 50px;
-        gap: 20px;
-    }
-
-    .logo1>img,
-    .logo2>img {
-        height: 50px;
-    }
-
-    .logo3>img {
-        height: 45px;
-    }
-
-
-
-    .info .content {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 500px;
-        gap: 40px;
-    }
-
-    .info.reverse .slika-senzor-div {
-        grid-column: 2 / 3;
-    }
-
-    .info.reverse .banner-content {
-        grid-column: 1 / 2;
-        grid-row: 1 / 2;
-
-        align-items: start;
-    }
-
-    .info.reverse .banner-content .hometext {
-        text-align: left;
-    }
-
-    .info .banner-content .hometext {
-        text-align: right;
-    }
-
-    .slika-senzor-div {
-        margin: 0;
-    }
-
-    .info .banner-content {
-        align-items: end;
-    }
-
-    h2.hometext {
-        font-size: 32px;
-    }
-
-    h4.hometext {
-        font-size: 24px;
-    }
-
-    .visit-now {
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-
-
-    .about-us h2 {
-        padding-bottom: 20px;
-    }
-
-    .about-us h4 {
-        padding: 5px 0;
-    }
-
-
-    .contact-us .content {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .contact-us h1.hometext {
-        max-width: 500px;
-    }
-
-    .contact-us .banner-content {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: end;
-        gap: 50px;
-        margin-top: 0;
-    }
-
-    .contact-us .contact-info {
-        align-items: end;
-        gap: 5px;
-    }
+.read-more {
+    font-size: 14px;
+    font-weight: 600;
 }
