@@ -38,6 +38,7 @@ h6 {
 
 
 .container {
+    position: relative;
     /* padding: 20px 0; */
     /* height: 100vh; */
     /* overflow: hidden; */
@@ -45,19 +46,29 @@ h6 {
     /* display: flex;
     flex-direction: column;
     justify-content: space-between; */
+}
 
-    /* background-image:
+.backgr-img {
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    background-image:
         linear-gradient(to bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)),
         url(./images/Beograd_-_Gradjevinski_fakultet1.jpg);
     background-position: top center;
     background-repeat: no-repeat;
-    background-size: auto; */
+    background-size: auto;
 }
 
 /* HEADER & FOOTER */
 
 header {
-    background-color: #a3e6cf;
+    background-image:
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)),
+        url(./images/Beograd_-_Gradjevinski_fakultet1.jpg);
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: auto;
     padding: 20px 0;
     position: sticky;
     top: 0;
@@ -77,9 +88,9 @@ header h3 {
 }
 
 footer {
-    background-color: #a3e6cf;
-    padding: 10px 0;
-    position: sticky;
+    background-color: #d8d8d8;
+    padding: 5px 0;
+    position: fixed;
     bottom: 0;
     width: 100%;
 }
@@ -103,8 +114,8 @@ input {
 }
 
 label {
-    position: sticky;
-    background-color: #a3e6cf;
+    /* position: sticky; */
+    /* background-color: #a3e6cf; */
     top: 100px;
     display: inline-block;
     width: fit-content;
@@ -247,4 +258,41 @@ h4 {
 .read-more {
     font-size: 14px;
     font-weight: 600;
+}
+
+
+
+
+/* GALERIJA */
+
+.galerija {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    gap: 20px;
+    overflow-y: hidden;
+}
+
+.kolona {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.single-pic {
+    height: 250px;
+    width: 280px;
+
+    border-radius: 30px;
+    border: #84A9AC 2px solid;
+}
+
+.single-pic img {
+    height: 250px;
+    width: 100%;
+    /* object-position: center; */
+    object-fit: cover;
+    border-radius: 28px;
 }
