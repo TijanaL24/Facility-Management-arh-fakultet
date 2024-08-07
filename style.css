@@ -52,15 +52,20 @@ h6 {
     z-index: 2;
 }
 
+.shaded {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.7);
+
+}
+
 .container {
     position: relative;
-    /* padding: 20px 0; */
-    /* height: 100vh; */
-    /* overflow: hidden; */
-
-    /* display: flex;
-    flex-direction: column;
-    justify-content: space-between; */
 }
 
 .backgr-img {
@@ -72,7 +77,7 @@ h6 {
         url(./images/Beograd_-_Gradjevinski_fakultet1.jpg);
     background-position: top center;
     background-repeat: no-repeat;
-    background-size: auto;
+    background-size: cover;
 }
 
 /* HEADER & FOOTER */
@@ -130,7 +135,7 @@ footer {
 
     position: relative;
 
-    margin: 0 40px;
+    margin: 0 30px 20px 30px;
     text-align: center;
 }
 
@@ -183,7 +188,7 @@ section {
 
 
     /* margin: 0 20px; */
-    height: auto;
+    /* height: 80vh; */
     /* padding: 20px 0; */
 }
 
@@ -222,7 +227,7 @@ section {
 
 .home-image img {
     height: 230px;
-    width: fit-content;
+    width: 100%;
     /* object-position: center; */
     object-fit: cover;
     border-radius: 30px;
@@ -254,12 +259,16 @@ button i {
 }
 
 .logos {
-    height: 30px;
+    height: max-content;
     width: auto;
     margin: 10px 0;
 
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
     gap: 10px;
 }
 
@@ -267,11 +276,19 @@ button i {
     height: 30px;
     width: 100%;
     object-fit: contain;
+    object-position: center;
 }
 
 
 
 /* SERVICES */
+
+.services>.main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
 
 .services .sub-content {
     display: flex;
@@ -285,6 +302,7 @@ button i {
     flex-direction: column;
     gap: 10px;
     align-items: end;
+
 }
 
 .service-description-short {
@@ -292,6 +310,8 @@ button i {
     flex-direction: column;
     gap: 5px;
     align-items: center;
+    justify-content: space-between;
+
 }
 
 .service-description-long {
@@ -346,12 +366,21 @@ h4 {
 .kolona {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
     align-items: center;
 }
 
-.single-pic {
+.large,
+.large img {
+    height: 350px;
+}
+
+.small,
+.small img {
     height: 250px;
+}
+
+.single-pic {
     width: 280px;
 
     border-radius: 30px;
@@ -359,7 +388,6 @@ h4 {
 }
 
 .single-pic img {
-    height: 250px;
     width: 100%;
     /* object-position: center; */
     object-fit: cover;
@@ -367,6 +395,8 @@ h4 {
 }
 
 
+
+/* CONTACT */
 
 .contact>.sub-content {
     display: flex;
@@ -492,7 +522,7 @@ a {
     }
 
     header h3 {
-        font-size: 40px;
+        font-size: 36px;
         width: 80%;
     }
 
@@ -511,29 +541,33 @@ a {
     }
 
     .main-part h1 {
-        font-size: 40px;
-        width: 400px;
+        font-size: 48px;
+        width: 350px;
     }
 
     .home-image {
-        width: 480px;
-        height: 360px;
+        width: 520px;
+        height: 400px;
     }
 
     .home-image img {
-        height: 360px;
+        height: 400px;
     }
 
     button {
         width: 220px;
         height: 75px;
-        font-size: 20px;
+        font-size: 22px;
     }
 
     .logos {
-        height: 45px;
+        height: max-content;
+        width: 450px;
+
+        /* margin-bottom: 30px; */
+
+
         gap: 30px;
-        margin-bottom: 30px;
     }
 
     .logos img {
@@ -548,6 +582,10 @@ a {
         padding-top: 5px;
     }
 
+    .main-part .services h1 {
+        width: 450px;
+    }
+
     .services .sub-content {
         flex-direction: row;
         flex-wrap: wrap;
@@ -556,5 +594,44 @@ a {
 
     .single-service {
         width: 280px;
+        height: 250px;
+    }
+
+    .service-description-short {
+        height: 250px;
+    }
+
+
+    /* GALLERY */
+    .gallery {
+        padding-top: 5px;
+    }
+
+    .large,
+    .large img {
+        height: 400px;
+    }
+
+    .small,
+    .small img {
+        height: 250px;
+    }
+
+
+
+    /* CONTACT */
+
+    .contact h1 {
+        width: 580px;
+    }
+
+    form {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .input-container.message {
+        width: 600px;
     }
 }
