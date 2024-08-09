@@ -72,6 +72,7 @@ h6 {
     height: 100vh;
     width: 100%;
     position: fixed;
+    top: 0;
     background-image:
         linear-gradient(to bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)),
         url(./images/Beograd_-_Gradjevinski_fakultet1.jpg);
@@ -80,20 +81,21 @@ h6 {
     background-size: cover;
 }
 
+.main {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+
 /* HEADER & FOOTER */
 
 header {
-    background-image:
-        linear-gradient(to bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)),
-        url(./images/Beograd_-_Gradjevinski_fakultet1.jpg);
-    background-position: top center;
-    background-repeat: no-repeat;
-    background-size: auto;
-
     padding: 20px 0;
-    position: sticky;
+    position: relative;
     top: 0;
-    z-index: 2;
     width: 100%;
 }
 
@@ -110,10 +112,8 @@ header h3 {
 }
 
 footer {
-    background-color: #d8d8d8;
-    padding: 5px 0;
-    position: fixed;
-    bottom: 0;
+    padding: 10px 0;
+    position: relative;
     width: 100%;
 }
 
@@ -122,6 +122,7 @@ footer {
     font-size: 12px;
     text-align: center;
 }
+
 
 
 /* MAIN PART */
@@ -135,7 +136,7 @@ footer {
 
     position: relative;
 
-    margin: 0 30px 20px 30px;
+    margin: 0 30px;
     text-align: center;
 }
 
@@ -144,10 +145,6 @@ input {
 }
 
 label {
-    /* position: sticky; */
-    /* background-color: #a3e6cf; */
-
-    top: 100px;
     display: inline-block;
 
     width: max-content;
@@ -164,7 +161,6 @@ label {
 input:checked+label {
     color: #3B6978;
     font-weight: bold;
-    /* text-decoration: underline solid 2px; */
     border-bottom: #3B6978 solid 2px;
 }
 
@@ -176,20 +172,9 @@ section {
 #services:checked~section.services,
 #gallery:checked~section.gallery,
 #contact:checked~section.contact {
-    /* position: relative; */
-    /* top: 140px; */
-    /* left: 20px; */
-
     display: flex;
     flex-direction: column;
     justify-content: center;
-
-    margin-bottom: 15px;
-
-
-    /* margin: 0 20px; */
-    /* height: 80vh; */
-    /* padding: 20px 0; */
 }
 
 #gallery:checked~section.gallery {
@@ -258,6 +243,10 @@ button i {
     color: #CDA274;
 }
 
+button:hover {
+    cursor: pointer;
+}
+
 .logos {
     height: max-content;
     width: auto;
@@ -303,12 +292,20 @@ button i {
     gap: 10px;
     align-items: end;
 
+    background-color: rgba(233, 242, 244, 0.2);
+    border: #84A9AC 2px solid;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.single-service:hover {
+    background-color: rgba(233, 242, 244, 0.8);
 }
 
 .service-description-short {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 10px;
     align-items: center;
     justify-content: space-between;
 
@@ -341,7 +338,7 @@ h4 {
 .read-more {
     font-size: 14px;
     font-weight: 600;
-    text-align: end;
+    text-align: center;
     width: 100%;
 }
 
@@ -429,8 +426,13 @@ form {
 
 .input-container.message {
     align-items: flex-start;
+    border-radius: 15px;
 }
 
+.contact label {
+    text-align: left;
+    padding-left: 8px;
+}
 
 .contact textarea,
 .contact input {
@@ -517,13 +519,16 @@ a {
 
 
 @media screen and (min-width:426px) {
-    body {
-        font-size: 18px;
-    }
 
     header h3 {
-        font-size: 36px;
-        width: 80%;
+        font-size: 30px;
+    }
+
+    #home:checked~section.home,
+    #services:checked~section.services,
+    #gallery:checked~section.gallery,
+    #contact:checked~section.contact {
+        padding-top: 5px;
     }
 
     label {
@@ -533,7 +538,6 @@ a {
 
     .home {
         gap: 20px;
-        padding-top: 5px;
     }
 
     .main-part {
@@ -541,32 +545,28 @@ a {
     }
 
     .main-part h1 {
-        font-size: 48px;
-        width: 350px;
+        font-size: 42px;
+        width: 300px;
     }
 
     .home-image {
-        width: 520px;
-        height: 400px;
+        width: 380px;
+        height: 300px;
     }
 
     .home-image img {
-        height: 400px;
+        height: 300px;
     }
 
     button {
-        width: 220px;
-        height: 75px;
-        font-size: 22px;
+        width: 200px;
+        height: 60px;
+        font-size: 20px;
     }
 
     .logos {
         height: max-content;
-        width: 450px;
-
-        /* margin-bottom: 30px; */
-
-
+        /* width: 450px; */
         gap: 30px;
     }
 
@@ -578,12 +578,8 @@ a {
 
     /* SERVICES */
 
-    .services {
-        padding-top: 5px;
-    }
-
     .main-part .services h1 {
-        width: 450px;
+        width: max-content;
     }
 
     .services .sub-content {
@@ -594,35 +590,33 @@ a {
 
     .single-service {
         width: 280px;
-        height: 250px;
+        height: 230px;
     }
 
     .service-description-short {
-        height: 250px;
+        height: 230px;
     }
 
 
     /* GALLERY */
-    .gallery {
-        padding-top: 5px;
-    }
 
     .large,
     .large img {
-        height: 400px;
+        height: 380px;
     }
 
     .small,
     .small img {
-        height: 250px;
+        height: 200px;
     }
 
 
 
     /* CONTACT */
 
-    .contact h1 {
-        width: 580px;
+    .contact h1,
+    form {
+        width: 450px;
     }
 
     form {
@@ -631,7 +625,271 @@ a {
         justify-content: center;
     }
 
+
+}
+
+
+
+@media screen and (min-width:768px) {
+    .contact h1 {
+        width: 550px;
+    }
+
+    form {
+        width: 630px;
+    }
+
     .input-container.message {
         width: 600px;
+    }
+}
+
+
+@media screen and (min-width:1024px) {
+
+    .main {
+        height: 100vh;
+        justify-content: flex-start;
+    }
+
+    footer {
+        position: fixed;
+        bottom: 0;
+    }
+
+    .main-part {
+        display: block;
+        max-width: 1100px;
+    }
+
+    header {
+        background: transparent;
+    }
+
+    #home:checked~section.home,
+    #services:checked~section.services,
+    #gallery:checked~section.gallery,
+    #contact:checked~section.contact {
+        padding-top: 20px;
+        margin: 0;
+    }
+
+    #home:checked~section.home {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 300px 60px 200px;
+    }
+
+    .home .logos {
+        grid-row: 3;
+        grid-column: 1/3;
+    }
+
+    .home .home-image {
+        grid-row: 1/3;
+        grid-column: 2;
+    }
+
+    .home .sub-content {
+        align-items: flex-start;
+        text-align: left;
+        gap: 20px;
+        width: 350px;
+    }
+
+    .home-image {
+        width: 450px;
+        height: 350px;
+    }
+
+    .home-image img {
+        height: 350px;
+    }
+
+
+
+    /* SERVICES */
+
+    .services>.main-content {
+        margin-bottom: 20px;
+    }
+
+    .single-service {
+        width: 250px;
+    }
+
+
+    /* GALLERY */
+
+    .galerija {
+        justify-content: center;
+    }
+
+
+    /* CONTACT */
+
+    .contact>.sub-content {
+        display: grid;
+        grid-template-columns: 300px 600px;
+        grid-template-rows: 100px 330px;
+        align-items: start;
+    }
+
+    .contact .h1-div {
+        grid-row: 1;
+        grid-column: 1/3;
+
+        text-align: center;
+        display: flex;
+        justify-content: center;
+    }
+
+    form {
+        grid-row: 2/3;
+        grid-column: 2/3;
+
+        width: 600px;
+        gap: 20px;
+        justify-content: flex-end;
+    }
+
+    .input-container {
+        width: 285px;
+    }
+
+    .sendMail {
+        margin: 0;
+    }
+
+    .contact-info {
+        grid-column: 1/3;
+        grid-row: 2/3;
+
+        justify-content: center;
+
+        height: 256px;
+    }
+
+}
+
+@media screen and (min-width:1440px) {
+    body {
+        font-size: 20px;
+    }
+
+    h4 {
+        font-size: 24px;
+    }
+
+    .main-part {
+        padding-top: 20px;
+        margin: 0 auto;
+    }
+
+    label {
+        margin: 0 10px;
+        font-size: 22px;
+        height: 35px;
+    }
+
+
+    /* HOME */
+
+    #home:checked~section.home {
+        padding-top: 80px;
+        grid-template-rows: 30vh 10vh 30vh;
+        column-gap: 20px;
+    }
+
+    .main-part h1 {
+        font-size: 50px;
+        width: 400px;
+        line-height: 150%;
+    }
+
+    .home .sub-content {
+        width: 450px;
+    }
+
+    .home-image {
+        width: 500px;
+        height: 400px;
+    }
+
+    .home-image img {
+        height: 400px;
+    }
+
+    button {
+        height: 80px;
+        width: 220px;
+        font-size: 22px;
+        border-radius: 30px;
+    }
+
+
+
+    /* SERVICES */
+
+    .services .sub-content {
+        gap: 30px;
+    }
+
+    .single-service {
+        height: 300px;
+        width: 280px;
+    }
+
+    .service-description-short {
+        height: 300px;
+    }
+
+    .read-more {
+        font-size: 16px;
+    }
+
+
+
+    /* GALLERY */
+
+    .single-pic {
+        width: 330px;
+    }
+
+    .large,
+    .large img {
+        height: 430px;
+    }
+
+    .small,
+    .small img {
+        height: 300px;
+    }
+
+
+
+    /* CONTACT */
+
+    .contact>.sub-content {
+        grid-template-rows: 1fr 3fr;
+    }
+
+    .contact h1 {
+        width: 650px;
+    }
+
+    .contact-info {
+        height: 290px;
+    }
+
+    .contact label {
+        font-size: 20px;
+        align-content: center;
+        margin: 0;
+    }
+
+    .contact textarea,
+    .contact input {
+        font-size: 18px;
     }
 }
