@@ -149,24 +149,72 @@ input {
     display: none;
 }
 
+.labels-container {
+    position: relative;
+    width: 275px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 label {
     display: inline-block;
 
     width: max-content;
     height: 25px;
     padding: 0 5px;
+
+    cursor: pointer;
+    position: relative;
+    transition: color 0.3s, font-weight 0.3s;
+
+    /* font-weight: bold; */
 }
 
-.main-part>label:hover {
-    color: #3B6978;
-    cursor: pointer;
-    font-weight: bold;
+.underline {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    background-color: #3B6978;
+    transition: left 0.3s ease, width 0.3s ease;
+}
+
+input:checked+label .underline {
+    background-color: #3B6978;
 }
 
 input:checked+label {
     color: #3B6978;
     font-weight: bold;
-    border-bottom: #3B6978 solid 2px;
+}
+
+#home:checked~.labels-container .underline {
+    left: 0;
+    width: 54px;
+}
+
+#services:checked~.labels-container .underline {
+    left: 61px;
+    width: 74px;
+}
+
+#gallery:checked~.labels-container .underline {
+    left: 138px;
+    width: 65px;
+}
+
+#contact:checked~.labels-container .underline {
+    left: 208px;
+    width: 67px;
+}
+
+#home:checked~.labels-container label[for="home"],
+#services:checked~.labels-container label[for="services"],
+#gallery:checked~.labels-container label[for="gallery"],
+#contact:checked~.labels-container label[for="contact"] {
+    font-weight: bold;
+    color: #3B6978;
 }
 
 section {
@@ -551,12 +599,63 @@ a {
     gap: 30px;
 }
 
+@media screen and (max-width:424px) {
+    .labels-container {
+        width: 270px;
+        gap: 5px;
+    }
+
+    #home:checked~.labels-container .underline {
+        left: 0;
+        width: 54px;
+    }
+
+    #services:checked~.labels-container .underline {
+        left: 56px;
+        width: 74px;
+    }
+
+    #gallery:checked~.labels-container .underline {
+        left: 128px;
+        width: 65px;
+    }
+
+    #contact:checked~.labels-container .underline {
+        left: 193px;
+        width: 67px;
+    }
+}
 
 
 @media screen and (min-width:426px) {
 
     header h3 {
         font-size: 30px;
+    }
+
+    .labels-container {
+        width: 300px;
+        gap: 10px;
+    }
+
+    #home:checked~.labels-container .underline {
+        left: 0;
+        width: 67px;
+    }
+
+    #services:checked~.labels-container .underline {
+        left: 75px;
+        width: 73px;
+    }
+
+    #gallery:checked~.labels-container .underline {
+        left: 155px;
+        width: 67px;
+    }
+
+    #contact:checked~.labels-container .underline {
+        left: 232px;
+        width: 68px;
     }
 
     #home:checked~section.home,
@@ -726,6 +825,32 @@ a {
         background: transparent;
     }
 
+    .labels-container {
+        margin: 0 auto;
+        width: 330px;
+        gap: 15px;
+    }
+
+    #home:checked~.labels-container .underline {
+        left: 0;
+        width: 71px;
+    }
+
+    #services:checked~.labels-container .underline {
+        left: 86px;
+        width: 73px;
+    }
+
+    #gallery:checked~.labels-container .underline {
+        left: 173px;
+        width: 71px;
+    }
+
+    #contact:checked~.labels-container .underline {
+        left: 259px;
+        width: 71px;
+    }
+
     #home:checked~section.home,
     #services:checked~section.services,
     #gallery:checked~section.gallery,
@@ -866,11 +991,36 @@ a {
     }
 
     label {
-        margin: 0 10px;
+        width: max-content;
+        padding: 0 10px;
         font-size: 22px;
         height: 35px;
     }
 
+    .labels-container {
+        width: 450px;
+        gap: 10px;
+    }
+
+    #home:checked~.labels-container .underline {
+        left: 0;
+        width: 81px;
+    }
+
+    #services:checked~.labels-container .underline {
+        left: 106px;
+        width: 107px;
+    }
+
+    #gallery:checked~.labels-container .underline {
+        left: 235px;
+        width: 95px;
+    }
+
+    #contact:checked~.labels-container .underline {
+        left: 352px;
+        width: 98px;
+    }
 
     /* HOME */
 
@@ -915,7 +1065,7 @@ a {
     }
 
     .single-service {
-        height: 280px;
+        height: 270px;
         width: 320px;
     }
 
@@ -984,6 +1134,7 @@ a {
     }
 
     .contact label {
+        width: max-content;
         font-size: 20px;
         align-content: center;
         margin: 0;
